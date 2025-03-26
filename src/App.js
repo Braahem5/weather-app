@@ -19,6 +19,8 @@ const App = () => {
         try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=${unit}`);
             setWeatherData(response.data);
+            setUnit('metric'); // Reset unit to metric after fetching new data
+
         } catch (err) {
             setError('City not found');
         } finally {
